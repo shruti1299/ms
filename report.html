@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <script type="text/javascript">
+    function getReport()
+    {
+
+            var grade = "";  
+            var  result="";  
+
+            var aiMarks = document.getElementById('ai').value;
+            var osMarks = document.getElementById('os').value;
+            var cdMarks = document.getElementById('cd').value;
+            var mpMarks = document.getElementById('mp').value;
+            var hmlMarks = document.getElementById('hml').value;
+            var dcnMarks = document.getElementById('dcn').value;
+            var totalMarks = aiMarks - (- osMarks) - (- cdMarks) - (- mpMarks)- (- hmlMarks)- (- dcnMarks);
+            var averageMarks = totalMarks / 6; 
+             switch(
+
+                    (averageMarks > 60 && averageMarks <= 100) ? 1 : 
+                    (averageMarks > 50 && averageMarks < 60) ? 2 : 
+                    (averageMarks > 40 && averageMarks < 50) ? 3 : 0 
+                  )
+                    
+                    {
+                        case 1 :grade = "A";result="First Class";break;
+                        case 2 :grade = "B"; result="Second Class";break;
+                        case 3 :grade = "C"; result="Third Class";break;
+                        case 0 :grade = "D"; result="Fail";break;
+                    }
+            document.getElementById('txtStudentName').value = document.getElementById('txtName').value;
+            document.getElementById('txtStudentClass').value = document.getElementById('txtClass').value;
+            document.getElementById('inst').value = document.getElementById('ins').value;
+             document.getElementById('ais').value = document.getElementById('ai').value;
+             
+              document.getElementById('oss').value = document.getElementById('os').value;
+              document.getElementById('cds').value = document.getElementById('cd').value;
+              document.getElementById('mps').value = document.getElementById('mp').value;
+              document.getElementById('hmls').value = document.getElementById('hml').value;
+             document.getElementById('dcns').value = document.getElementById('dcn').value;
+
+            document.getElementById('txtTotalMarks').value = totalMarks;
+            document.getElementById('txtAvgMarks').value = averageMarks;
+            document.getElementById('txtGrade').value = grade;
+            document.getElementById('txtResult').value = result;
+           
+
+}
+  </script>
+</head>
+<body>
+<div class="header" id="topheader">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container pd-2 text-uppercase">
+  <a class="navbar-brand font-weight-bold text-white" href="#">REPORT CARD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-white font-weight-bolder" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white font-weight-bolder" href="#">Report Card</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+<br><br> 
+<section class="header-section">
+  <div class="center-div">
+  <h3 class="font-weight-bold text-uppercase">Enter Your Details</h3>
+  <form>
+  <div class="row ">
+    <div class="col col-md-4 col-4 col-4">
+      <input type="text" id="txtName" placeholder="Full name">
+    </div>
+    <div class="col col-md-4 col-4 col-4">
+      <input type="text" id="txtClass"  placeholder="Branch">
+    </div>
+    <div class="col col-md-4 col-4 col-4">
+      <input type="text" id="ins" placeholder="Institute name">
+    </div>
+  </div>
+  
+  <br><br>
+</form>
+  <div class="container">
+
+          <table class="table table-hover table-striped table-dark">
+                    <tr><td>ARTIFICIAL INTELLIGENCE</td><td><input type="text" placeholder="enter marks" id="ai"></td></tr>
+                    <tr><td>OPERATING SYSTEMS</td><td><input type="text" placeholder="enter marks" id="os"></td></tr>
+                    <tr><td>COMPILER DESIGN</td><td><input type="text" placeholder="enter marks" id="cd"></td></tr>
+                    <tr><td>MICRO PROCESSOR</td><td><input type="text" placeholder="enter marks" id="mp"></td></tr> 
+                    <tr><td>HTML</td><td><input type="text" placeholder="enter marks" id="hml"></td></tr>   
+                    <tr><td>DATA AND COMMUNICATION </td><td><input type="text" placeholder="enter marks" id="dcn"></td></tr>
+                </table>
+                </div><br>
+                <button onclick="getReport()"  class="btn btn-success font-weight-bolder "> 
+                   GENERATE RESULT
+                </button> <br><br>
+</div>
+</div>
+</section>
+<br><br><br><br>
+<section>
+  <h1 class="text-center">MARKSHEET</h1>
+  <div class="container">
+      <div class="row">
+    <div class=" extra-div col-lg-4 col-md-4 col-4 ">
+       NAME:<input type="text "  id="txtStudentName"> 
+       </div> 
+       <div class=" extra-div col-lg-4 col-md-4 col-4 ">
+      BRANCH:<input type="text" id="txtStudentClass"> 
+         </div>
+         <div class=" extra-div col-lg-4 col-md-4 col-4">
+       INSTITUTE:<input type="text " id="inst" > 
+       </div>
+         </div>
+  <br>
+
+  <table class="table table-hover table-striped table-light">
+    
+                    <tr><td> ARTIFICIAL INTELLIGENCE<br></td><td><input type="text" id="ais"></td></tr>
+                    <tr><td>OPERATING SYSTEMS<br> </td><td><input type="text"  id="oss"></td></tr>
+                    <tr><td>COMPILER DESIGN <br></td><td><input type="text"  id="cds"></td></tr>
+                    <tr><td>MICRO PROCESSOR<br></td><td><input type="text"  id="mps"></td></tr> 
+                    <tr><td>HTML<br></td><td><input type="text"  id="hmls"></td></tr>   
+                    <tr><td>DATA AND COMMUNICATION <br></td><td><input type="text"  id="dcns"></td></tr>
+                  </span>
+                </table>
+      
+                <div class="row ">
+              <div class=" extra-div col-lg-4 col-md-4 col-4">
+                TOTAL MARKS:<input type="text" id="txtTotalMarks"> 
+                </div> 
+                <div class=" extra-div col-lg-4 col-md-4 col-4">
+                PERCENTAGE:<input type="text" id="txtAvgMarks">
+                </div>
+                <div class=" extra-div col-lg-4 col-md-4 col-4">
+                GRADE:<input type="text" id="txtGrade">
+               </div>
+           </div>
+          
+</div>
+</div>
+</section>
+
+<footer class= "p-2 bg-dark text-center">
+  <button class="btn  bg-light"><i class="fa fa-download "></i>DOWNLOAD</button>
+  
+</footer>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ 
+</body>
+</html>
